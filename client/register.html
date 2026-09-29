@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Account | ClayVista Luxury Tableware</title>
+  <title>Create Account | ClayVista Luxury Porcelain & Ceramic Tableware</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/responsive.css">
 </head>
@@ -12,52 +12,133 @@
 
   <!-- Header -->
   <header class="site-header">
-    <div class="container navbar-inner" style="justify-content: center;">
+    <div class="container navbar-inner" style="justify-content: space-between;">
       <a href="/index.html" class="brand-logo">
         <svg class="brand-icon" viewBox="0 0 24 24"><path d="M12 2C8 2 4 6 4 11c0 4.5 3 8 8 11 5-3 8-6.5 8-11 0-5-4-9-8-9zm0 17.5c-3.6-2.6-6-5.4-6-8.5 0-3.6 2.7-6.5 6-6.5s6 2.9 6 6.5c0 3.1-2.4 5.9-6 8.5z"/></svg>
-        <div><span>ClayVista</span><span class="brand-tagline">Crafting Elegance in Every Piece</span></div>
+        <div>
+          <span>ClayVista</span>
+          <span class="brand-tagline">Crafting Elegance in Every Piece</span>
+        </div>
+      </a>
+      <a href="/login.html" class="btn btn-sm btn-outline" style="border-radius: var(--radius-full);">
+        Already a Member? Sign In →
       </a>
     </div>
   </header>
 
-  <main class="container" style="padding: 50px 20px 80px; max-width: 520px;">
-    <div style="background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 36px; box-shadow: var(--shadow-md);">
-      <h1 style="font-family: var(--font-serif); font-size: 2rem; font-weight: 700; margin-bottom: 8px; text-align: center;">Join ClayVista</h1>
-      <p style="color: var(--color-text-muted); font-size: 0.9rem; text-align: center; margin-bottom: 24px;">Create an account to track shipments, curate wishlists, and receive exclusive studio invitations.</p>
+  <!-- Main Luxury Split Layout -->
+  <main class="auth-page-wrapper">
+    <div class="auth-split-card">
+      <!-- Left Hero Visual Column -->
+      <div class="auth-hero-col" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=85');">
+        <div class="auth-hero-overlay"></div>
+        <div class="auth-hero-content">
+          <div class="auth-hero-badge">✦ Welcome to the Atelier</div>
+          <h2 class="auth-hero-title">Begin Your Collector Journey.</h2>
+          <p class="auth-hero-quote">
+            "Join an exclusive circle of interior designers, chefs, and luxury home decorators who value enduring ceramic craftsmanship."
+          </p>
+        </div>
+        <div class="auth-hero-content">
+          <div class="auth-hero-features">
+            <div class="auth-hero-feat-item">
+              <span class="auth-hero-feat-icon">🎁</span>
+              <span>15% Off Your First Heirloom Order with WELCOME15</span>
+            </div>
+            <div class="auth-hero-feat-item">
+              <span class="auth-hero-feat-icon">📍</span>
+              <span>Real-Time Logistics Milestones & Fragile Freight Tracking</span>
+            </div>
+            <div class="auth-hero-feat-item">
+              <span class="auth-hero-feat-icon">✨</span>
+              <span>Private Access to Limited Studio Kiln Dispatches</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <form id="register-form">
-        <div class="form-group">
-          <label class="form-label">Full Name *</label>
-          <input type="text" id="reg-name" class="form-input" required placeholder="e.g. Priya Sharma">
+      <!-- Right Form Column -->
+      <div class="auth-form-col">
+        <div class="auth-form-header">
+          <h1 class="auth-form-title">Create Account</h1>
+          <p class="auth-form-desc">Register with ClayVista to save delivery addresses, track orders, and request bespoke dining sets.</p>
         </div>
-        <div class="form-group">
-          <label class="form-label">Email Address *</label>
-          <input type="email" id="reg-email" class="form-input" required placeholder="you@example.com">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Phone Number</label>
-          <input type="tel" id="reg-phone" class="form-input" placeholder="+91 98765 43210">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Password * (Min 6 Characters)</label>
-          <input type="password" id="reg-password" class="form-input" required minlength="6" placeholder="••••••••">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Confirm Password *</label>
-          <input type="password" id="reg-confirm-password" class="form-input" required minlength="6" placeholder="••••••••">
-        </div>
-        <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 14px;">Create Account</button>
-      </form>
 
-      <div style="text-align: center; margin-top: 24px; font-size: 0.88rem; color: var(--color-text-muted);">
-        Already have an account? <a href="/login.html" style="color: var(--color-accent); font-weight: 600;">Sign In →</a>
+        <form id="register-form">
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Full Name *</label>
+            <div class="auth-input-wrap">
+              <span class="auth-input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </span>
+              <input type="text" id="reg-name" class="form-input" required placeholder="Priya Sharma" autocomplete="name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Email Address *</label>
+            <div class="auth-input-wrap">
+              <span class="auth-input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </span>
+              <input type="email" id="reg-email" class="form-input" required placeholder="priya@example.com" autocomplete="email">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-phone">Mobile Phone (For Order SMS & OTP) *</label>
+            <div class="auth-input-wrap">
+              <span class="auth-input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+              </span>
+              <input type="tel" id="reg-phone" class="form-input" required placeholder="+91 98111 22334" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Password * (Min 6 Characters)</label>
+            <div class="auth-input-wrap">
+              <span class="auth-input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </span>
+              <input type="password" id="reg-password" class="form-input" required minlength="6" placeholder="••••••••" autocomplete="new-password">
+              <button type="button" class="password-toggle-btn" title="Toggle password visibility">
+                <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <svg class="eye-closed" style="display: none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-confirm-password">Confirm Password *</label>
+            <div class="auth-input-wrap">
+              <span class="auth-input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </span>
+              <input type="password" id="reg-confirm-password" class="form-input" required minlength="6" placeholder="••••••••" autocomplete="new-password">
+              <button type="button" class="password-toggle-btn" title="Toggle password visibility">
+                <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <svg class="eye-closed" style="display: none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 14px;">
+            Create Member Account
+          </button>
+        </form>
+
+        <div style="text-align: center; margin-top: 24px; font-size: 0.88rem; color: var(--color-text-muted);">
+          Already have an account? <a href="/login.html" style="color: var(--color-accent); font-weight: 600;">Sign In Here →</a>
+        </div>
       </div>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-bottom">
-      <div>© 2026 ClayVista Tableware. Handcrafted with pride in India.</div>
+      <div>© 2026 ClayVista Luxury Porcelain & Ceramic Tableware. Handcrafted with pride in India.</div>
     </div>
   </footer>
 

@@ -145,8 +145,19 @@ const sendOTP = async (email, otp) => {
   return await sendEmail({ to: email, subject, html });
 };
 
+// SMS / WhatsApp OTP dispatcher (with terminal dev preview and Twilio/SMS gateway mock)
+const sendSMSOTP = async (phone, otp) => {
+  console.log(`\n\x1b[36m========== [MOBILE SMS / WHATSAPP OTP DISPATCHED] ==========\x1b[0m`);
+  console.log(`\x1b[1mRecipient Mobile:\x1b[0m ${phone}`);
+  console.log(`\x1b[1mSMS Text:\x1b[0m Your ClayVista Luxury Tableware verification code is: ${otp}. Valid for 10 minutes. Do not share this code.`);
+  console.log(`\x1b[1mDispatched At:\x1b[0m ${new Date().toLocaleString()}`);
+  console.log(`\x1b[36m===============================================================\x1b[0m\n`);
+  return { success: true, messageId: 'sms-otp-' + Date.now(), phone, otp };
+};
+
 module.exports = {
   sendEmail,
   sendOrderConfirmation,
-  sendOTP
+  sendOTP,
+  sendSMSOTP
 };

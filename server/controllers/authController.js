@@ -1,6 +1,53 @@
 const User = require('../models/User');
 const generateToken = require('../utils/generateToken');
-const { sendOTP } = require('../utils/sendEmail');
+const { sendOTP, sendSMSOTP } = require('../utils/sendEmail');
+
+// Helper to construct query for email or phone
+const findUserByIdentifier = (identifier) => {
+  if (!identifier) return {};
+  const raw = identifier.toString().trim();
+  if (raw.includes('@')) {
+    return { email: raw.toLowerCase() };
+  }
+  const digits = raw.replace(/\D/g, '');
+  const or = [
+    { email: raw.toLowerCase() },
+    { phone: raw }
+  ];
+  if (digits) {
+    or.push({ phone: digits });
+    or.push({ phone: `+91 ${digits}` });
+    or.push({ phone: `+91${digits}` });
+  }
+  if (digits.length >= 10) {
+    const last10 = digits.slice(-10);
+    // Allow optional spaces or dashes between digits
+    const flexPattern = last10.split('').join('[\\s\\-]*');
+    or.push({ phone: { $regex: flexPattern, $options: 'i' } });
+  }
+  return { $or: or };
+};
+
+// Mask email or phone for privacy
+const maskDestination = (dest, channel) => {
+  if (!dest) return '';
+  if (channel === 'sms' || (!dest.includes('@') && /\d/.test(dest))) {
+    const digits = dest.replace(/\D/g, '');
+    if (digits.length >= 10) {
+      return `+91 ${digits.slice(0, 2)}****${digits.slice(-4)}`;
+    }
+    return dest;
+  }
+  const parts = dest.split('@');
+  if (parts.length === 2) {
+    const userPart = parts[0];
+    const maskedUser = userPart.length > 2 
+      ? userPart[0] + '***' + userPart[userPart.length - 1]
+      : userPart + '***';
+    return `${maskedUser}@${parts[1]}`;
+  }
+  return dest;
+};
 
 // Register User
 exports.register = async (req, res, next) => {
@@ -47,23 +94,25 @@ exports.register = async (req, res, next) => {
   }
 };
 
-// Login User
+// Login User (Supports Email OR Mobile Number)
 exports.login = async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    const identifier = (req.body.identifier || req.body.email || req.body.phone || '').trim();
+    const password = req.body.password;
 
-    if (!email || !password) {
-      return res.status(400).json({ success: false, message: 'Please enter both email and password.' });
+    if (!identifier || !password) {
+      return res.status(400).json({ success: false, message: 'Please enter your email or mobile number, and password.' });
     }
 
-    const user = await User.findOne({ email: email.toLowerCase() }).select('+password');
+    const query = findUserByIdentifier(identifier);
+    const user = await User.findOne(query).select('+password');
     if (!user) {
-      return res.status(401).json({ success: false, message: 'Invalid email or password.' });
+      return res.status(401).json({ success: false, message: 'Invalid credentials. No account found with these details.' });
     }
 
     const isMatch = await user.matchPassword(password);
     if (!isMatch) {
-      return res.status(401).json({ success: false, message: 'Invalid email or password.' });
+      return res.status(401).json({ success: false, message: 'Incorrect password. Please verify and try again.' });
     }
 
     if (!user.isActive) {
@@ -226,84 +275,118 @@ exports.deleteAddress = async (req, res, next) => {
   }
 };
 
-// Forgot Password - Generate & Send OTP
+// Forgot Password - Generate & Send OTP via Email OR Mobile SMS
 exports.forgotPassword = async (req, res, next) => {
   try {
-    const { email } = req.body;
-    if (!email) {
-      return res.status(400).json({ success: false, message: 'Please provide your registered email.' });
+    const identifier = (req.body.identifier || req.body.email || req.body.phone || '').trim();
+    const preferredChannel = (req.body.channel || (identifier.includes('@') ? 'email' : 'sms')).toLowerCase();
+
+    if (!identifier) {
+      return res.status(400).json({ success: false, message: 'Please provide your registered Email or Mobile Number.' });
     }
 
-    const user = await User.findOne({ email: email.toLowerCase() });
+    const query = findUserByIdentifier(identifier);
+    const user = await User.findOne(query);
+
     if (!user) {
-      // Don't leak existence for security, return positive note
-      return res.status(200).json({
-        success: true,
-        message: 'If that email address exists in our system, an OTP code has been dispatched.'
+      return res.status(404).json({
+        success: false,
+        message: 'No registered ClayVista account found with this email or mobile number.'
       });
     }
 
-    // Generate 6 digit numeric OTP
+    // Generate 6-digit numeric OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     user.resetPasswordOTP = otp;
-    user.resetPasswordExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
+    user.resetPasswordExpires = Date.now() + 15 * 60 * 1000; // 15 minutes
     await user.save();
 
-    await sendOTP(user.email, otp);
+    let dispatchedChannel = 'email';
+    let targetDestination = user.email;
+
+    if (preferredChannel === 'sms' && (user.phone || !identifier.includes('@'))) {
+      dispatchedChannel = 'sms';
+      targetDestination = user.phone || identifier;
+      await sendSMSOTP(targetDestination, otp);
+    } else {
+      dispatchedChannel = 'email';
+      targetDestination = user.email;
+      await sendOTP(user.email, otp);
+    }
+
+    const masked = maskDestination(targetDestination, dispatchedChannel);
 
     res.status(200).json({
       success: true,
-      message: 'Verification OTP has been sent to your email.'
+      message: dispatchedChannel === 'sms'
+        ? `A 6-digit verification code has been dispatched via SMS to ${masked}`
+        : `A 6-digit verification code has been dispatched to ${masked}`,
+      channel: dispatchedChannel,
+      destination: masked,
+      identifier: user.email,
+      phone: user.phone,
+      demoOtp: process.env.NODE_ENV !== 'production' ? otp : undefined
     });
   } catch (error) {
     next(error);
   }
 };
 
-// Verify OTP
+// Verify OTP (by Email OR Mobile Number)
 exports.verifyOTP = async (req, res, next) => {
   try {
-    const { email, otp } = req.body;
+    const identifier = (req.body.identifier || req.body.email || req.body.phone || '').trim();
+    const otp = (req.body.otp || '').trim();
+
+    if (!identifier || !otp) {
+      return res.status(400).json({ success: false, message: 'Please provide your email/phone and the 6-digit OTP.' });
+    }
+
+    const userQuery = findUserByIdentifier(identifier);
     const user = await User.findOne({
-      email: email.toLowerCase(),
+      ...userQuery,
       resetPasswordOTP: otp,
       resetPasswordExpires: { $gt: Date.now() }
     });
 
     if (!user) {
-      return res.status(400).json({ success: false, message: 'Invalid or expired OTP code.' });
+      return res.status(400).json({ success: false, message: 'Invalid or expired OTP code. Please check and try again.' });
     }
 
     res.status(200).json({
       success: true,
-      message: 'OTP verified successfully. You can now reset your password.'
+      message: 'OTP verified successfully. You may now choose your new password.',
+      identifier: user.email
     });
   } catch (error) {
     next(error);
   }
 };
 
-// Reset Password with OTP
+// Reset Password with OTP (by Email OR Mobile Number)
 exports.resetPassword = async (req, res, next) => {
   try {
-    const { email, otp, newPassword } = req.body;
+    const identifier = (req.body.identifier || req.body.email || req.body.phone || '').trim();
+    const otp = (req.body.otp || '').trim();
+    const newPassword = req.body.newPassword;
 
-    if (!email || !otp || !newPassword) {
-      return res.status(400).json({ success: false, message: 'Please supply email, OTP, and new password.' });
+    if (!identifier || !otp || !newPassword) {
+      return res.status(400).json({ success: false, message: 'Please supply all required fields.' });
     }
 
     if (newPassword.length < 6) {
       return res.status(400).json({ success: false, message: 'Password must be at least 6 characters long.' });
     }
 
+    const userQuery = findUserByIdentifier(identifier);
     const user = await User.findOne({
-      email: email.toLowerCase(),
+      ...userQuery,
       resetPasswordOTP: otp,
       resetPasswordExpires: { $gt: Date.now() }
     });
 
     if (!user) {
-      return res.status(400).json({ success: false, message: 'Invalid or expired verification code.' });
+      return res.status(400).json({ success: false, message: 'Invalid or expired verification session. Please request a new OTP.' });
     }
 
     user.password = newPassword;
@@ -315,12 +398,13 @@ exports.resetPassword = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      message: 'Password reset successfully. You are now logged in.',
+      message: 'Your password has been reset successfully. You are now signed in!',
       token,
       user: {
         id: user._id,
         name: user.name,
         email: user.email,
+        phone: user.phone,
         role: user.role
       }
     });

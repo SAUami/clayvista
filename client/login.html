@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign In | ClayVista Luxury Tableware</title>
+  <title>Sign In | ClayVista Luxury Porcelain & Ceramic Tableware</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/responsive.css">
 </head>
@@ -12,52 +12,152 @@
 
   <!-- Header -->
   <header class="site-header">
-    <div class="container navbar-inner" style="justify-content: center;">
+    <div class="container navbar-inner" style="justify-content: space-between;">
       <a href="/index.html" class="brand-logo">
         <svg class="brand-icon" viewBox="0 0 24 24"><path d="M12 2C8 2 4 6 4 11c0 4.5 3 8 8 11 5-3 8-6.5 8-11 0-5-4-9-8-9zm0 17.5c-3.6-2.6-6-5.4-6-8.5 0-3.6 2.7-6.5 6-6.5s6 2.9 6 6.5c0 3.1-2.4 5.9-6 8.5z"/></svg>
-        <div><span>ClayVista</span><span class="brand-tagline">Crafting Elegance in Every Piece</span></div>
+        <div>
+          <span>ClayVista</span>
+          <span class="brand-tagline">Crafting Elegance in Every Piece</span>
+        </div>
+      </a>
+      <a href="/shop.html" class="btn btn-sm btn-outline" style="border-radius: var(--radius-full);">
+        Explore Collection →
       </a>
     </div>
   </header>
 
-  <main class="container" style="padding: 60px 20px 80px; max-width: 480px;">
-    <div style="background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 36px; box-shadow: var(--shadow-md);">
-      <h1 style="font-family: var(--font-serif); font-size: 2rem; font-weight: 700; margin-bottom: 8px; text-align: center;">Welcome Back</h1>
-      <p style="color: var(--color-text-muted); font-size: 0.9rem; text-align: center; margin-bottom: 24px;">Sign in to access your orders, saved tableware, and wishlist.</p>
-
-      <!-- Quick Demo Account Fillers -->
-      <div style="background: var(--color-secondary); padding: 14px; border-radius: var(--radius-sm); margin-bottom: 24px; text-align: center; border: 1px dashed var(--color-accent);">
-        <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-accent); font-weight: 600;">Fast Demo Evaluation</span>
-        <div style="display: flex; gap: 8px; justify-content: center; margin-top: 8px;">
-          <button type="button" id="fill-demo-customer" class="btn btn-sm btn-outline">Demo Customer</button>
-          <button type="button" id="fill-demo-admin" class="btn btn-sm btn-accent">Master Admin</button>
+  <!-- Main Luxury Split Layout -->
+  <main class="auth-page-wrapper">
+    <div class="auth-split-card">
+      <!-- Left Editorial Visual Hero -->
+      <div class="auth-hero-col">
+        <div class="auth-hero-overlay"></div>
+        <div class="auth-hero-content">
+          <div class="auth-hero-badge">✦ 100% Handcrafted • 1280°C High-Fired</div>
+          <h2 class="auth-hero-title">Timeless Dining, Handcrafted for Connoisseurs.</h2>
+          <p class="auth-hero-quote">
+            "ClayVista dinnerware turns every ordinary meal into a celebratory occasion. The tactile weight, organic rims, and heirloom glazes are pure perfection."
+            <br><span style="font-size: 0.82rem; opacity: 0.85; margin-top: 6px; display: block;">— Architectural Tableware Digest</span>
+          </p>
+        </div>
+        <div class="auth-hero-content">
+          <div class="auth-hero-features">
+            <div class="auth-hero-feat-item">
+              <span class="auth-hero-feat-icon">🔒</span>
+              <span>256-Bit Bank-Grade SSL Secure Authentication</span>
+            </div>
+            <div class="auth-hero-feat-item">
+              <span class="auth-hero-feat-icon">📦</span>
+              <span>Insured Breakage-Free Fragile White Glove Delivery</span>
+            </div>
+            <div class="auth-hero-feat-item">
+              <span class="auth-hero-feat-icon">🏺</span>
+              <span>Authentic Master Potters Guild Certified</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <form id="login-form">
-        <div class="form-group">
-          <label class="form-label">Email Address</label>
-          <input type="email" id="login-email" class="form-input" required placeholder="you@example.com">
+      <!-- Right Form Column -->
+      <div class="auth-form-col">
+        <div class="auth-form-header">
+          <h1 class="auth-form-title">Welcome Back</h1>
+          <p class="auth-form-desc">Sign in with your Email or Mobile Number to access your orders, saved addresses, and tableware wishlist.</p>
         </div>
-        <div class="form-group">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <label class="form-label" style="margin-bottom: 0;">Password</label>
-            <a href="/forgot-password.html" style="font-size: 0.8rem; color: var(--color-accent);">Forgot?</a>
-          </div>
-          <input type="password" id="login-password" class="form-input" required placeholder="••••••••">
-        </div>
-        <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 10px;">Sign In</button>
-      </form>
 
-      <div style="text-align: center; margin-top: 24px; font-size: 0.88rem; color: var(--color-text-muted);">
-        Don't have an account yet? <a href="/register.html" style="color: var(--color-accent); font-weight: 600;">Create One →</a>
+        <!-- Fast Demo Evaluation Quick Chips -->
+        <div class="auth-demo-banner">
+          <span class="auth-demo-label">⚡ One-Click Instant Demo Evaluation</span>
+          <div class="auth-demo-grid">
+            <button type="button" id="fill-demo-customer" class="auth-demo-btn">
+              <span>👤</span> Demo Customer (Email)
+            </button>
+            <button type="button" id="fill-demo-customer-phone" class="auth-demo-btn">
+              <span>📱</span> Demo Customer (Mobile)
+            </button>
+            <button type="button" id="fill-demo-admin" class="auth-demo-btn" style="grid-column: span 2; background: var(--color-accent-soft); border-color: var(--color-accent); color: var(--color-accent);">
+              <span>👑</span> Master Admin Console
+            </button>
+          </div>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label" for="login-identifier">Email Address or Mobile Number *</label>
+            <div class="auth-input-wrap">
+              <span class="auth-input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </span>
+              <input type="text" id="login-identifier" class="form-input" required placeholder="customer@clayvista.com or +91 98111 22334" autocomplete="username">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <label class="form-label" for="login-password" style="margin-bottom: 0;">Password *</label>
+              <a href="/forgot-password.html" style="font-size: 0.82rem; color: var(--color-accent); font-weight: 500; transition: var(--transition);">
+                Forgot Password?
+              </a>
+            </div>
+            <div class="auth-input-wrap">
+              <span class="auth-input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </span>
+              <input type="password" id="login-password" class="form-input" required placeholder="••••••••" autocomplete="current-password">
+              <button type="button" class="password-toggle-btn" id="toggle-login-password" title="Show or hide password" aria-label="Toggle password visibility">
+                <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <svg class="eye-closed" style="display: none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+              </button>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin: 16px 0 22px;">
+            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--color-text-muted); cursor: pointer; user-select: none;">
+              <input type="checkbox" id="remember-me" checked style="accent-color: var(--color-accent); width: 16px; height: 16px;">
+              <span>Keep me signed in</span>
+            </label>
+          </div>
+
+          <button type="submit" id="login-submit-btn" class="btn btn-primary btn-block btn-lg" style="letter-spacing: 0.5px;">
+            Sign In
+          </button>
+        </form>
+
+        <!-- Social Alternative UI -->
+        <div style="display: flex; align-items: center; gap: 14px; margin: 24px 0 18px;">
+          <div style="flex: 1; height: 1px; background: var(--color-border);"></div>
+          <span style="font-size: 0.76rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-light);">Or continue with</span>
+          <div style="flex: 1; height: 1px; background: var(--color-border);"></div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <button type="button" class="btn btn-outline btn-sm" onclick="showToast('Google OAuth connected in production mode', 'info')" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+            <span>Google</span>
+          </button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="showToast('Apple ID connected in production mode', 'info')" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.84c.66-.82 1.12-1.95 1-3.09-.98.04-2.15.66-2.82 1.45-.59.69-1.12 1.83-.98 2.94 1.1.08 2.14-.52 2.8-1.3"/></svg>
+            <span>Apple</span>
+          </button>
+        </div>
+
+        <div style="text-align: center; margin-top: 26px; font-size: 0.88rem; color: var(--color-text-muted);">
+          Don't have an account yet? 
+          <a href="/register.html" style="color: var(--color-accent); font-weight: 600; margin-left: 4px;">Create One Now →</a>
+        </div>
       </div>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-bottom">
-      <div>© 2026 ClayVista Tableware. Handcrafted with pride in India.</div>
+      <div>© 2026 ClayVista Luxury Porcelain & Ceramic Tableware. Handcrafted with pride in India.</div>
+      <div style="margin-top: 8px;">
+        <a href="/faq.html" style="color: var(--color-text-muted); margin-right: 16px;">Help & FAQs</a>
+        <a href="/contact.html" style="color: var(--color-text-muted);">Artisan Concierge</a>
+      </div>
     </div>
   </footer>
 
