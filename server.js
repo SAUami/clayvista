@@ -101,8 +101,35 @@ app.get('*', (req, res, next) => {
 // Global Error Handler
 app.use(errorHandler);
 
-// Start Server
-const PORT = process.env.PORT || 5000;
+// Start Server with Graceful Port Collision Handling
+const initialPort = parseInt(process.env.PORT, 10) || 5001;
+
+const listenOnPort = (portToTry, retriesLeft = 3) => {
+  const server = app.listen(portToTry, () => {
+    console.log(`\n======================================================`);
+    console.log(`  🏺 CLAYVISTA LUXURY CERAMICS & TABLEWARE PLATFORM`);
+    console.log(`  Tagline: "Crafting Elegance in Every Piece"`);
+    console.log(`  🌐 Website URL : http://localhost:${portToTry}`);
+    console.log(`  🛠 Admin Panel : http://localhost:${portToTry}/admin/index.html`);
+    console.log(`======================================================\n`);
+  });
+
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.warn(`\x1b[33m⚠ Port ${portToTry} is already occupied by another terminal/process.\x1b[0m`);
+      if (retriesLeft > 0) {
+        console.log(`\x1b[36mℹ Automatically binding to alternate port ${portToTry + 1}...\x1b[0m`);
+        listenOnPort(portToTry + 1, retriesLeft - 1);
+      } else {
+        console.error(`\x1b[31m✖ Ports are busy. Please stop the existing process or change PORT in .env.\x1b[0m`);
+        process.exit(1);
+      }
+    } else {
+      console.error('Server error:', err);
+      process.exit(1);
+    }
+  });
+};
 
 const startServer = async () => {
   try {
@@ -115,16 +142,7 @@ const startServer = async () => {
       await seedData();
     }
 
-    app.listen(PORT, () => {
-      console.log(`\n======================================================`);
-      console.log(`  🏺 CLAYVISTA LUXURY CERAMICS & TABLEWARE PLATFORM`);
-      console.log(`  Tagline: "Crafting Elegance in Every Piece"`);
-      console.log(`  🌐 Website URL : http://localhost:${PORT}`);
-      console.log(`  🛠 Admin Panel : http://localhost:${PORT}/admin/index.html`);
-      console.log(`  🔑 Admin Creds : admin@clayvista.com / Admin@12345`);
-      console.log(`  👤 Demo User   : customer@clayvista.com / Customer@12345`);
-      console.log(`======================================================\n`);
-    });
+    listenOnPort(initialPort);
   } catch (err) {
     console.error('Failed to start ClayVista server:', err);
     process.exit(1);
