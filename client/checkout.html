@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Checkout | ClayVista Luxury Tableware</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <style>
+    .checkout-layout {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 40px;
+      padding: 40px 0 80px;
+      align-items: start;
+    }
+    .checkout-box {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .checkout-step-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--color-border-light);
+      padding-bottom: 12px;
+    }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: var(--font-sans);
+    }
+    .payment-option-card {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      background: var(--color-secondary);
+      transition: var(--transition);
+    }
+    .payment-option-card:hover {
+      border-color: var(--color-accent);
+    }
+  </style>
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container navbar-inner">
+      <a href="/index.html" class="brand-logo">
+        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M12 2C8 2 4 6 4 11c0 4.5 3 8 8 11 5-3 8-6.5 8-11 0-5-4-9-8-9zm0 17.5c-3.6-2.6-6-5.4-6-8.5 0-3.6 2.7-6.5 6-6.5s6 2.9 6 6.5c0 3.1-2.4 5.9-6 8.5z"/></svg>
+        <div><span>ClayVista</span><span class="brand-tagline">Crafting Elegance in Every Piece</span></div>
+      </a>
+      <div style="font-size: 0.88rem; color: var(--color-text-muted);">
+        🔒 256-Bit SSL Encrypted Checkout
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <form id="checkout-order-form">
+      <div class="checkout-layout">
+        <!-- Left: Address & Payment Methods -->
+        <div>
+          <!-- Step 1: Customer & Delivery Address -->
+          <div class="checkout-box">
+            <h2 class="checkout-step-title">
+              <span class="step-num">1</span> Delivery & Customer Details
+            </h2>
+
+            <div id="saved-addresses-selector" style="display: none;"></div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Full Name *</label>
+                <input type="text" id="shipping-name" class="form-input" required placeholder="e.g. Priya Sharma">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address *</label>
+                <input type="email" id="shipping-email" class="form-input" required placeholder="priya@example.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number *</label>
+                <input type="tel" id="shipping-phone" class="form-input" required placeholder="+91 98111 22334">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Postal Pincode *</label>
+                <input type="text" id="shipping-pincode" maxlength="6" class="form-input" required placeholder="e.g. 110001">
+              </div>
+              <div class="form-group full-width">
+                <label class="form-label">Street Address / House / Studio *</label>
+                <input type="text" id="shipping-street" class="form-input" required placeholder="Flat 402, Lotus Greens, Sector 78">
+              </div>
+              <div class="form-group">
+                <label class="form-label">City *</label>
+                <input type="text" id="shipping-city" class="form-input" required placeholder="Noida">
+              </div>
+              <div class="form-group">
+                <label class="form-label">State *</label>
+                <input type="text" id="shipping-state" class="form-input" required placeholder="Uttar Pradesh">
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Payment Gateway Selection -->
+          <div class="checkout-box">
+            <h2 class="checkout-step-title">
+              <span class="step-num">2</span> Payment Method
+            </h2>
+
+            <label class="payment-option-card">
+              <input type="radio" name="payment_method" value="cod" checked style="accent-color: var(--color-accent);">
+              <div>
+                <strong>Cash on Delivery (COD)</strong>
+                <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 2px;">Pay upon delivery of your insured ceramic package.</p>
+              </div>
+            </label>
+
+            <label class="payment-option-card">
+              <input type="radio" name="payment_method" value="razorpay" style="accent-color: var(--color-accent);">
+              <div>
+                <strong>Razorpay Secure (UPI, Cards, NetBanking, Wallets)</strong>
+                <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 2px;">Instant zero-fee payment with GPay, PhonePe, Paytm, or Credit Cards.</p>
+              </div>
+            </label>
+
+            <label class="payment-option-card">
+              <input type="radio" name="payment_method" value="stripe" style="accent-color: var(--color-accent);">
+              <div>
+                <strong>Stripe Global Card Payments</strong>
+                <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 2px;">Encrypted Visa, Mastercard, American Express.</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Right: Order Review & Placement -->
+        <div>
+          <div class="checkout-box" style="position: sticky; top: 100px;">
+            <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 16px; border-bottom: 1px solid var(--color-border); padding-bottom: 10px;">Order Review</h3>
+
+            <!-- Itemized List -->
+            <div id="checkout-items-list" style="max-height: 240px; overflow-y: auto; margin-bottom: 20px;"></div>
+
+            <!-- Price Breakdown -->
+            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; border-bottom: 1px solid var(--color-border); padding-bottom: 16px; margin-bottom: 16px;">
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--color-text-muted);">Subtotal</span>
+                <strong id="checkout-subtotal">₹0</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--color-text-muted);">GST (18%)</span>
+                <strong id="checkout-gst">₹0</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--color-text-muted);">Insured Shipping</span>
+                <strong id="checkout-shipping">FREE</strong>
+              </div>
+              <div id="checkout-discount-row" style="display: none; justify-content: space-between; color: var(--color-accent);">
+                <span>Discount</span>
+                <strong id="checkout-discount-val">-₹0</strong>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px;">
+              <span style="font-size: 1.1rem; font-weight: 700;">Total Payable</span>
+              <span id="checkout-grand-total" style="font-size: 1.6rem; font-weight: 700; color: var(--color-accent);">₹0</span>
+            </div>
+
+            <button type="submit" id="btn-place-order" class="btn btn-primary btn-block btn-lg">Place Order</button>
+            <p style="text-align: center; font-size: 0.75rem; color: var(--color-text-muted); margin-top: 14px;">
+              By placing your order, you agree to ClayVista's artisanal delivery and breakage insurance terms.
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/checkout.js"></script>
+</body>
+</html>

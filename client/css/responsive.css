@@ -1,0 +1,255 @@
+/* ==========================================================================
+   ClayVista - Responsive Stylesheet & Breakpoints
+   ========================================================================== */
+
+/* Large Tablets & Small Laptops (<= 1100px) */
+@media (max-width: 1100px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .mega-menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mega-featured-card {
+    display: none;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-top {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablets (<= 868px) */
+@media (max-width: 868px) {
+  .announcement-inner {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .nav-menu {
+    display: none; /* Replaced by mobile drawer */
+  }
+
+  .mobile-menu-toggle {
+    display: flex !important;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding: 40px 0;
+  }
+
+  .hero-bg-overlay {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    clip-path: none;
+    border-radius: var(--radius-md);
+    margin-bottom: 24px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .craft-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instagram-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .product-details-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cart-container-grid, .checkout-container-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .shop-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .shop-filter-sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    background: var(--color-card-bg);
+    z-index: 10002;
+    padding: 24px;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shop-filter-sidebar.open {
+    display: block;
+  }
+}
+
+/* Mobile Phones (<= 576px) */
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chat-window {
+    width: calc(100% - 32px);
+    right: 16px;
+    bottom: 80px;
+  }
+
+  .floating-widgets {
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+/* Mobile Navigation Drawer */
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 300px;
+  height: 100vh;
+  background: var(--color-card-bg);
+  box-shadow: var(--shadow-lg);
+  z-index: 10005;
+  transition: left 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.mobile-nav-drawer.open {
+  left: 0;
+}
+
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10004;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.mobile-nav-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 20px;
+}
+
+.mobile-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-drawer-links a {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-drawer-links a:hover {
+  color: var(--color-accent);
+}

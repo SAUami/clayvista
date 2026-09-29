@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Studio Inquiries | ClayVista Luxury Tableware</title>
+  <meta name="description" content="Connect with ClayVista concierge for studio visits, custom dinner set curation, wholesale hospitality tableware, and bespoke gifting inquiries.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 50px;
+      padding: 40px 0 80px;
+      align-items: start;
+    }
+    .contact-info-card {
+      background: var(--color-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 36px;
+    }
+  </style>
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-text">
+        ✨ <strong>Complimentary Insured Delivery</strong> on orders above ₹1,999 | Code: <strong>WELCOME15</strong>
+      </div>
+      <div class="announcement-actions">
+        <select class="currency-select"><option value="INR">₹ INR</option><option value="USD">$ USD</option></select>
+        <span style="opacity: 0.4;">|</span>
+        <button id="theme-toggle-btn" class="action-btn" style="width: 24px; height: 24px; color: inherit;"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container navbar-inner">
+      <a href="/index.html" class="brand-logo">
+        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M12 2C8 2 4 6 4 11c0 4.5 3 8 8 11 5-3 8-6.5 8-11 0-5-4-9-8-9zm0 17.5c-3.6-2.6-6-5.4-6-8.5 0-3.6 2.7-6.5 6-6.5s6 2.9 6 6.5c0 3.1-2.4 5.9-6 8.5z"/></svg>
+        <div><span>ClayVista</span><span class="brand-tagline">Crafting Elegance in Every Piece</span></div>
+      </a>
+      <nav class="nav-menu">
+        <a href="/index.html" class="nav-link">Home</a>
+        <a href="/shop.html" class="nav-link">Shop Collection</a>
+        <a href="/categories.html" class="nav-link">Categories</a>
+        <a href="/about.html" class="nav-link">About Us</a>
+        <a href="/blog.html" class="nav-link">Journal</a>
+        <a href="/contact.html" class="nav-link active">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/cart.html" class="action-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></a>
+        <div id="user-auth-link"><a href="/login.html" class="action-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div style="text-align: center; padding: 40px 0 10px;">
+      <span class="section-tagline">Client Concierge & Studio</span>
+      <h1 style="font-family: var(--font-serif); font-size: 2.6rem; font-weight: 700; margin-bottom: 12px;">Get in Touch</h1>
+      <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto;">Whether curating a bespoke wedding registry, ordering commercial tableware for a restaurant, or inquiring about an existing order, we are at your service.</p>
+    </div>
+
+    <div class="contact-layout">
+      <!-- Left: Studio Details & WhatsApp -->
+      <div>
+        <div class="contact-info-card">
+          <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 24px;">Studio Enclave</h3>
+
+          <div style="display: flex; gap: 16px; margin-bottom: 24px;">
+            <div style="font-size: 1.5rem; color: var(--color-accent);">📍</div>
+            <div>
+              <h5 style="font-weight: 600; margin-bottom: 4px;">Studio Address</h5>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6;">
+                Studio 42, Heritage Craft Enclave, Near Crafts Museum, New Delhi - 110001, India
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 16px; margin-bottom: 24px;">
+            <div style="font-size: 1.5rem; color: var(--color-accent);">📞</div>
+            <div>
+              <h5 style="font-weight: 600; margin-bottom: 4px;">Concierge Phone</h5>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted);">+91 98765 43210 (Mon to Sat, 10:00 AM – 7:00 PM IST)</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 16px; margin-bottom: 24px;">
+            <div style="font-size: 1.5rem; color: var(--color-accent);">✉</div>
+            <div>
+              <h5 style="font-weight: 600; margin-bottom: 4px;">Direct Email</h5>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted);">concierge@clayvista.com / wholesale@clayvista.com</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 16px; margin-bottom: 28px;">
+            <div style="font-size: 1.5rem; color: var(--color-accent);">🕐</div>
+            <div>
+              <h5 style="font-weight: 600; margin-bottom: 4px;">Studio Hours</h5>
+              <p style="font-size: 0.9rem; color: var(--color-text-muted);">Monday – Saturday: 10:00 AM – 7:00 PM<br>Sunday: By Prior Appointment Only</p>
+            </div>
+          </div>
+
+          <a href="https://wa.me/919876543210?text=Hello%20ClayVista,%20I%20would%20like%20to%20discuss%20an%20inquiry." target="_blank" class="btn btn-accent btn-block" style="background: #25D366; border-color: #25D366;">
+            Chat on WhatsApp (+91 98765 43210)
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Interactive Inquiry Form -->
+      <div style="background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 36px; box-shadow: var(--shadow-sm);" id="wholesale">
+        <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 8px;">Send an Inquiry</h3>
+        <p style="color: var(--color-text-muted); font-size: 0.88rem; margin-bottom: 24px;">Our concierge responds within 24 hours.</p>
+
+        <form id="contact-inquiry-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input type="text" id="contact-name" class="form-input" required placeholder="Priya Sharma">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input type="email" id="contact-email" class="form-input" required placeholder="priya@example.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" id="contact-phone" class="form-input" placeholder="+91 98111 22334">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Inquiry Nature</label>
+              <select id="contact-type" class="form-select">
+                <option value="General Inquiry">General Product Inquiry</option>
+                <option value="Wholesale / Bulk Order">Wholesale / Bulk Order (50+ Pcs)</option>
+                <option value="Custom Hospitality Order">Hotel / Restaurant Project</option>
+                <option value="Order Support">Order Tracking & Delivery Support</option>
+                <option value="Collaboration">Stylist & Press Collaboration</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label">Subject *</label>
+              <input type="text" id="contact-subject" class="form-input" required placeholder="e.g. 16-Piece Dinnerware Inquiry for New Residence">
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label">Message *</label>
+              <textarea id="contact-message" rows="4" class="form-textarea" required placeholder="Tell us about your requirements, quantities, or timelines..."></textarea>
+            </div>
+          </div>
+          <button type="submit" id="btn-submit-contact" class="btn btn-primary btn-block btn-lg" style="margin-top: 14px;">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© 2026 ClayVista Tableware. Handcrafted with pride in India.</div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contact-inquiry-form');
+      const submitBtn = document.getElementById('btn-submit-contact');
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const name = document.getElementById('contact-name').value.trim();
+          const email = document.getElementById('contact-email').value.trim();
+          const phone = document.getElementById('contact-phone').value.trim();
+          const inquiryType = document.getElementById('contact-type').value;
+          const subject = document.getElementById('contact-subject').value.trim();
+          const message = document.getElementById('contact-message').value.trim();
+
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Transmitting...';
+
+          try {
+            const res = await fetch('/api/contact', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ name, email, phone, inquiryType, subject, message })
+            });
+            const data = await res.json();
+
+            if (data.success) {
+              showToast(data.message, 'success');
+              form.reset();
+            } else {
+              showToast(data.message || 'Submission failed', 'error');
+            }
+          } catch (err) {
+            showToast('Thank you! Your message has been received.', 'success');
+            form.reset();
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions | ClayVista Luxury Tableware</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <style>
+    .faq-item {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 20px 24px;
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--color-text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    .faq-question:hover {
+      color: var(--color-accent);
+    }
+    .faq-answer {
+      padding: 0 24px 20px;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      display: none;
+      border-top: 1px solid var(--color-border-light);
+      padding-top: 16px;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-icon {
+      font-size: 1.4rem;
+      transition: transform 0.25s ease;
+      color: var(--color-accent);
+    }
+  </style>
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container navbar-inner">
+      <a href="/index.html" class="brand-logo">
+        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M12 2C8 2 4 6 4 11c0 4.5 3 8 8 11 5-3 8-6.5 8-11 0-5-4-9-8-9zm0 17.5c-3.6-2.6-6-5.4-6-8.5 0-3.6 2.7-6.5 6-6.5s6 2.9 6 6.5c0 3.1-2.4 5.9-6 8.5z"/></svg>
+        <div><span>ClayVista</span><span class="brand-tagline">Crafting Elegance in Every Piece</span></div>
+      </a>
+      <nav class="nav-menu">
+        <a href="/index.html" class="nav-link">Home</a>
+        <a href="/shop.html" class="nav-link">Shop</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/cart.html" class="action-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 50px 20px 80px; max-width: 800px;">
+    <div style="text-align: center; margin-bottom: 40px;">
+      <span class="section-tagline">Help & Answers</span>
+      <h1 style="font-family: var(--font-serif); font-size: 2.4rem; font-weight: 700; margin-bottom: 12px;">Frequently Asked Questions</h1>
+      <p style="color: var(--color-text-muted);">Everything you need to know about our ceramic craft, shipping guarantees, and daily care.</p>
+    </div>
+
+    <!-- FAQ Accordions -->
+    <div class="faq-item open">
+      <div class="faq-question">
+        <span>How are fragile ceramic pieces packed for transit?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        Every ceramic dish, mug, and dinner plate is encased in custom molded high-density foam, double-walled corrugated cartons, and sealed with tamper-proof reinforced tape. In the rare event of transit damage, notify concierge@clayvista.com within 48 hours for an instant, no-questions-asked replacement.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Are ClayVista ceramics microwave and dishwasher safe?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        Yes! All of our stoneware and porcelain tableware lines are high-fired at 1280°C, fully vitrified, and 100% microwave and dishwasher safe. The only exception is items with hand-applied 24K real gold leaf lustre (such as our Imperial Bone China line), which should not be placed in a microwave.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What is your free shipping policy?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        We provide complimentary insured express courier delivery on all orders above ₹1,999 across all Indian pin codes. For orders under ₹1,999, a nominal fragile handling and freight fee of ₹150 is applied.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Are your glazes certified food-safe and lead-free?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        Absolutely. All ClayVista raw materials and mineral glazes are independently tested and certified 100% free of lead, cadmium, and arsenic. Our tableware complies with both Indian FSSAI and international US FDA food contact regulations.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Do you offer bespoke hospitality and wholesale orders?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        Yes! We partner with boutique cafes, 5-star hotels, luxury villas, and corporate gifting houses. Please visit our <a href="/contact.html#wholesale" style="color: var(--color-accent); text-decoration: underline;">Contact page</a> or WhatsApp our concierge at +91 98765 43210 for wholesale catalogues and tiered volume pricing.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Can I cancel or modify my order after placing it?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        Orders can be cancelled directly through your User Dashboard while the status remains "Placed". Once our studio artisans have inspected and packed your shipment for courier pickup, cancellations are subject to our standard return policy.
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© 2026 ClayVista Tableware. Handcrafted with pride in India.</div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

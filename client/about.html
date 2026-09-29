@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | The ClayVista Legacy & Craftsmanship</title>
+  <meta name="description" content="Discover the ClayVista story: Handcrafted porcelain, bone china and high-fired stoneware born from centuries of Indian potting heritage.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-text">
+        ✨ <strong>Complimentary Insured Delivery</strong> on orders above ₹1,999 | Code: <strong>WELCOME15</strong>
+      </div>
+      <div class="announcement-actions">
+        <select class="currency-select"><option value="INR">₹ INR</option><option value="USD">$ USD</option></select>
+        <span style="opacity: 0.4;">|</span>
+        <button id="theme-toggle-btn" class="action-btn" style="width: 24px; height: 24px; color: inherit;"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container navbar-inner">
+      <a href="/index.html" class="brand-logo">
+        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M12 2C8 2 4 6 4 11c0 4.5 3 8 8 11 5-3 8-6.5 8-11 0-5-4-9-8-9zm0 17.5c-3.6-2.6-6-5.4-6-8.5 0-3.6 2.7-6.5 6-6.5s6 2.9 6 6.5c0 3.1-2.4 5.9-6 8.5z"/></svg>
+        <div><span>ClayVista</span><span class="brand-tagline">Crafting Elegance in Every Piece</span></div>
+      </a>
+      <nav class="nav-menu">
+        <a href="/index.html" class="nav-link">Home</a>
+        <a href="/shop.html" class="nav-link">Shop Collection</a>
+        <a href="/categories.html" class="nav-link">Categories</a>
+        <a href="/about.html" class="nav-link active">About Us</a>
+        <a href="/blog.html" class="nav-link">Journal</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/cart.html" class="action-btn" title="Cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></a>
+        <div id="user-auth-link"><a href="/login.html" class="action-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- About Hero -->
+    <section style="background: var(--color-secondary); padding: 80px 0; text-align: center;">
+      <div class="container" style="max-width: 760px;">
+        <span class="section-tagline">Our Heritage & Mission</span>
+        <h1 style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; margin-bottom: 20px; line-height: 1.2;">
+          Honoring the Tactile Alchemy of Earth, Water, & Fire
+        </h1>
+        <p style="color: var(--color-text-muted); font-size: 1.15rem; line-height: 1.8;">
+          Founded with a commitment to bridge centuries of traditional Indian pottery guilds with modern Scandinavian and Japanese dining aesthetics, ClayVista brings warmth, mindfulness, and timeless dignity back to the shared table.
+        </p>
+      </div>
+    </section>
+
+    <!-- Story & Mission Grid -->
+    <section class="container" style="padding: 80px 20px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+        <div>
+          <span class="section-tagline">The Genesis</span>
+          <h2 class="section-title">From Khurja & Jaipur to Your Dining Room</h2>
+          <p style="color: var(--color-text-muted); line-height: 1.8; margin-bottom: 20px;">
+            In an era of mass-produced plastic tableware and machine-stamped ceramics that chip at the slightest touch, ClayVista was created to restore intentionality. We partnered with generational artisan clusters across Uttar Pradesh and Rajasthan to preserve traditional wheel-throwing techniques while innovating high-temperature electric kilns.
+          </p>
+          <p style="color: var(--color-text-muted); line-height: 1.8;">
+            Today, our tableware graces private residences across 40+ Indian cities, Michelin-starred bistros, and bespoke luxury weddings worldwide.
+          </p>
+        </div>
+        <div style="border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-lg);">
+          <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=800&q=80" alt="Master Potter" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Manufacturing 5-Step Process -->
+    <section style="background: var(--color-secondary); padding: 80px 0;" id="process">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tagline">How We Craft</span>
+          <h2 class="section-title">The 5 Stages of ClayVista Ceramics</h2>
+          <p class="section-subtitle">Every piece journeys through 18 days of patient artisanal shaping, air-drying, and high-heat transformation.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+          <div style="background: var(--color-card-bg); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+            <span style="font-family: var(--font-serif); font-size: 2rem; color: var(--color-accent); font-weight: 700;">01</span>
+            <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 8px 0 10px;">Clay Sourcing & Wedging</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6;">Natural organic stoneware and bone ash clays are mixed with filtered water and hand-wedged to expel micro air bubbles.</p>
+          </div>
+          <div style="background: var(--color-card-bg); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+            <span style="font-family: var(--font-serif); font-size: 2rem; color: var(--color-accent); font-weight: 700;">02</span>
+            <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 8px 0 10px;">Wheel Throwing & Carving</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6;">Turned individually on the potter's wheel. Rims and foot rings are trimmed by hand using brass looping tools.</p>
+          </div>
+          <div style="background: var(--color-card-bg); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+            <span style="font-family: var(--font-serif); font-size: 2rem; color: var(--color-accent); font-weight: 700;">03</span>
+            <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 8px 0 10px;">Bisque Firing (900°C)</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6;">The dried greenware undergoes its preliminary firing to harden the clay matrix while leaving it porous for mineral glazes.</p>
+          </div>
+          <div style="background: var(--color-card-bg); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+            <span style="font-family: var(--font-serif); font-size: 2rem; color: var(--color-accent); font-weight: 700;">04</span>
+            <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 8px 0 10px;">Mineral Glazing & Gold</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6;">Dipped in custom non-toxic mineral suspensions. For our royal lines, 24K real gold leaf is hand-burnished along the rim.</p>
+          </div>
+          <div style="background: var(--color-card-bg); padding: 28px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+            <span style="font-family: var(--font-serif); font-size: 2rem; color: var(--color-accent); font-weight: 700;">05</span>
+            <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 8px 0 10px;">Vitrification at 1280°C</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6;">The ultimate high-heat fusion melts silica into glass, permanently sealing pores for chip-proof, microwave-safe daily use.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quality Standards -->
+    <section class="container" style="padding: 80px 20px; text-align: center;">
+      <span class="section-tagline">Certified Peace of Mind</span>
+      <h2 class="section-title">Tested for Generations of Daily Dining</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 40px; text-align: left;">
+        <div style="border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 28px;">
+          <h4 style="font-weight: 600; font-size: 1.1rem; margin-bottom: 8px; color: #2B5E43;">✔ Food-Safe Certified</h4>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6;">Certified zero lead and cadmium leaching compliant with international FDA and FSSAI standards.</p>
+        </div>
+        <div style="border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 28px;">
+          <h4 style="font-weight: 600; font-size: 1.1rem; margin-bottom: 8px; color: #2B5E43;">✔ Thermal Shock Tested</h4>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6;">Withstands extreme temperature gradients up to 180°C without cracking, spalling, or glaze crazing.</p>
+        </div>
+        <div style="border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 28px;">
+          <h4 style="font-weight: 600; font-size: 1.1rem; margin-bottom: 8px; color: #2B5E43;">✔ Commercial Dishwasher Safe</h4>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6;">Tested through 1,000 continuous wash cycles without surface etching or dulling of reactive glazes.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© 2026 ClayVista Tableware. Handcrafted with pride in India.</div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
