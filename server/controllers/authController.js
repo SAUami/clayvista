@@ -324,8 +324,7 @@ exports.forgotPassword = async (req, res, next) => {
       channel: dispatchedChannel,
       destination: masked,
       identifier: user.email,
-      phone: user.phone,
-      demoOtp: process.env.NODE_ENV !== 'production' ? otp : undefined
+      phone: user.phone
     });
   } catch (error) {
     next(error);

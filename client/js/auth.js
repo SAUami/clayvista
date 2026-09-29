@@ -373,16 +373,6 @@ function initForgotPasswordFlow() {
           const targetEl = document.getElementById('target-destination-text');
           if (targetEl) targetEl.textContent = data.destination || identifier;
 
-          // If in development mode, reveal helper code
-          if (data.demoOtp) {
-            const demoEl = document.getElementById('demo-otp-helper');
-            const codeEl = document.getElementById('demo-otp-code');
-            if (demoEl && codeEl) {
-              codeEl.textContent = data.demoOtp;
-              demoEl.style.display = 'block';
-            }
-          }
-
           // Move to Step 2
           step1Container.style.display = 'none';
           step2Container.style.display = 'block';
