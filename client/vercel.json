@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "https://clayvista.onrender.com/api/:path*" },
+    { "source": "/uploads/:path*", "destination": "https://clayvista.onrender.com/uploads/:path*" }
+  ]
+}
