@@ -17,7 +17,7 @@ const generatePDFInvoice = (order, dataCallback, endCallback) => {
     .text('PREMIUM PORCELAIN & CERAMIC TABLEWARE', 40, 72)
     .fillColor('#666666')
     .text('GSTIN: 07AAACC4298M1Z8 | FSSAI: 10020011003412', 40, 85)
-    .text('Studio 42, Heritage Craft Enclave, New Delhi - 110001', 40, 97);
+    .text(process.env.STORE_ADDRESS || 'House no. 4, Gali no. 7, Shiv Shakti Enclave, Titu Colony, Faridabad, Haryana, India, 121003', 40, 97);
 
   // Invoice Title & Meta (Right aligned)
   doc
@@ -147,7 +147,7 @@ const generatePDFInvoice = (order, dataCallback, endCallback) => {
     .text('Terms & Conditions:', 40, 680)
     .text('1. All items are hand-inspected for thermal resilience and zero transit fractures.', 40, 692)
     .text('2. Ceramic care: Dishwasher and microwave safe unless gilded with precious metal lustre.', 40, 702)
-    .text('3. For transit damage claims or returns, notify concierge@clayvista.com within 48 hours.', 40, 712)
+    .text(`3. For transit damage claims or returns, notify ${process.env.STORE_EMAIL || 'Clayvistaindia@gmail.com'} within 48 hours.`, 40, 712)
     .fontSize(9)
     .fillColor('#C46A4A')
     .text('Thank you for welcoming ClayVista craftsmanship into your home.', 40, 745, { align: 'center', width: 515 });

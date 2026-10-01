@@ -22,7 +22,7 @@ exports.submitContact = async (req, res, next) => {
 
     // Notify concierge team
     sendEmail({
-      to: process.env.STORE_EMAIL || 'concierge@clayvista.com',
+      to: process.env.STORE_EMAIL || 'Clayvistaindia@gmail.com',
       subject: `[New Inquiry] ${inquiryType || 'Message'} from ${name}`,
       text: `Inquiry from ${name} (${email}, Phone: ${phone || 'N/A'})\n\nSubject: ${subject}\n\nMessage:\n${message}`
     }).catch(() => {});

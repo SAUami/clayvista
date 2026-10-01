@@ -38,8 +38,8 @@ const sampleCategories = [
     name: 'Bowls',
     slug: 'bowls',
     description: 'Deep ramen bowls, cereal bowls, salad bowls, and handcrafted dipping saucers.',
-    image: 'https://images.unsplash.com/photo-1567767292723-5e9262174c87?auto=format&fit=crop&w=800&q=80',
-    bannerImage: 'https://images.unsplash.com/photo-1567767292723-5e9262174c87?auto=format&fit=crop&w=1600&q=80',
+    image: 'https://images.unsplash.com/photo-1590736969955-71cc94801759?auto=format&fit=crop&w=800&q=80',
+    bannerImage: 'https://images.unsplash.com/photo-1590736969955-71cc94801759?auto=format&fit=crop&w=1600&q=80',
     displayOrder: 4
   },
   {
@@ -112,7 +112,7 @@ const sampleProducts = [
     images: [
       'https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?auto=format&fit=crop&w=1000&q=80',
       'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1567767292723-5e9262174c87?auto=format&fit=crop&w=1000&q=80'
+      'https://images.unsplash.com/photo-1590736969955-71cc94801759?auto=format&fit=crop&w=1000&q=80'
     ],
     is360Available: true,
     ratings: { average: 4.9, count: 48 },
@@ -195,7 +195,7 @@ const sampleProducts = [
     dimensions: { height: '9 cm', diameter: '20 cm', capacity: '950 ml', weight: '1.4 kg' },
     weight: '1.4 kg',
     images: [
-      'https://images.unsplash.com/photo-1567767292723-5e9262174c87?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1590736969955-71cc94801759?auto=format&fit=crop&w=1000&q=80',
       'https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?auto=format&fit=crop&w=1000&q=80'
     ],
     is360Available: true,
@@ -625,7 +625,7 @@ const seedData = async () => {
         name: 'ClayVista Master Admin',
         email: 'admin@clayvista.com',
         password: 'Admin@12345',
-        phone: '+91 98765 43210',
+        phone: '+91 81786 64347',
         role: 'admin'
       });
       console.log('✔ Admin account created: admin@clayvista.com (Password: Admin@12345)');

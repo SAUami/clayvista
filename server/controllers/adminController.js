@@ -22,11 +22,11 @@ exports.getDashboardStats = async (req, res, next) => {
       $expr: { $lte: ['$stock', '$lowStockThreshold'] }
     });
 
-    // Recent 5 orders
+    // Recent orders for admin overview
     const recentOrders = await Order.find()
       .sort({ createdAt: -1 })
-      .limit(6)
-      .select('orderNumber customerDetails.name grandTotal orderStatus paymentMethod paymentStatus createdAt');
+      .limit(10)
+      .select('orderNumber customerDetails orderItems grandTotal subtotal taxGst shippingFee orderStatus paymentMethod paymentStatus createdAt courier');
 
     // Monthly Sales Chart Data (Last 6 months)
     const monthlySales = await Order.aggregate([

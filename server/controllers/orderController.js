@@ -148,7 +148,7 @@ exports.createOrder = async (req, res, next) => {
         // Automation: Alert admin if stock falls below threshold
         if (product.stock <= product.lowStockThreshold) {
           sendEmail({
-            to: process.env.STORE_EMAIL || 'admin@clayvista.com',
+            to: process.env.STORE_EMAIL || 'Clayvistaindia@gmail.com',
             subject: `[Low Stock Alert] ${product.name} is running low!`,
             text: `Product "${product.name}" (SKU: ${product.sku}) now has only ${product.stock} units remaining.`
           }).catch(() => {});

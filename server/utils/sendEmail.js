@@ -36,7 +36,7 @@ const sendEmail = async ({ to, subject, html, text }) => {
   try {
     const transporter = createTransporter();
     const info = await transporter.sendMail({
-      from: process.env.EMAIL_FROM || 'ClayVista Luxury Ceramics <concierge@clayvista.com>',
+      from: process.env.EMAIL_FROM || 'ClayVista Luxury Ceramics <Clayvistaindia@gmail.com>',
       to,
       subject,
       html,
